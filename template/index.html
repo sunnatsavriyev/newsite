@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+        {% block content %}
+        <p><strong class="text-danger">onlinelar soni {{ online_soni }} ta</strong></p>
+        <div class="col-4">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="text_center">
+                    {% for online in online_user %}
+                        <li>{{ online.user.username }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+            
+        {% endblock content %}
+    
+</body>
+</html>
+
